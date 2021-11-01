@@ -16,14 +16,17 @@
 
 const x = prompt("Enter, please, any number");
 const y = prompt("Enter, please, any  power to the number");
-getPower(x, y);
+
 
 function getPower(num, pow = 1) {
-	if (isNaN(num) || isNaN(pow) || (!num) || num === "null") {
-		return alert("You have entered invalid data")
-	} else {
-		let result = Math.pow(num, pow);
-		return alert(result)
-	}
+
+	if ((!num) || (!num.trim()) || typeof (+num) !== "number" || isNaN(+num))
+		return alert("You have entered invalid operand");
+	if ((!pow.trim()) || typeof (+pow) !== "number" || isNaN(+pow))
+		return alert("You have entered invalid number of power")
+
+	return Math.pow(num, pow);
 };
 
+const result = getPower(x, y);
+alert(result);
